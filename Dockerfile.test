@@ -1,0 +1,15 @@
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
+
+ARG USER_ID=1001
+ARG GROUP_ID=1001
+
+# Install test dependencies
+RUN pip install nose
+
+RUN groupadd --gid $GROUP_ID --system jenkins_slave
+RUN useradd -m --no-log-init --uid $USER_ID --gid $GROUP_ID --system jenkins_slave
+
+RUN mkdir -p /mxnet && chown -R jenkins_slave /mxnet
+
+WORKDIR /mxnet
