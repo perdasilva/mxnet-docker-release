@@ -44,7 +44,7 @@ build() {
 test() {
     local runtime_param=""
     if [[ ${mxnet_variant} == cu* ]]; then
-        runtime_param="--runtime=nvidia"
+        runtime_param="--gpus all"
     fi
     local test_image_name="${image_name}_test"
     

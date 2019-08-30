@@ -18,6 +18,9 @@ case ${mxnet_variant} in
     cu100*)
     echo "nvidia/cuda:10.0-cudnn7-runtime-ubuntu16.04"
     ;;
+    cu101*)
+    echo "nvidia/cuda:10.1-cudnn7-runtime-ubuntu16.04"
+    ;;
     cpu)
     echo "ubuntu:16.04"
     ;;
