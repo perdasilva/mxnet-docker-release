@@ -49,7 +49,7 @@ test() {
     local test_image_name="${image_name}_test"
     
     docker build -t "${test_image_name}" --build-arg USER_ID=`id -u` --build-arg GROUP_ID=`id -g` --build-arg BASE_IMAGE="${image_name}" -f Dockerfile.test .
-    docker run ${runtime_param} -u `id -u`:`id -g` -v `pwd`:/mxnet "${test_image_name}" ${resources_path}/test_python_image.sh "${mxnet_variant}" "${python_cmd}"
+    docker run ${runtime_param} -u `id -u`:`id -g` -v `pwd`:/mxnet "${test_image_name}" ./test_python_image.sh "${mxnet_variant}" "${python_cmd}"
 }
 
 # Pushes the runtime image to the repository
